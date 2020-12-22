@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
-import AddAlbum from '../AddAlbum/AddAlbum'
 import './DashboardNav.css'
 
 export default class DashboardNav extends Component{

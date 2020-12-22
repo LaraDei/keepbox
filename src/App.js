@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Route, Switch, Link} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import LandingPage from './components/LandingPage/LandingPage'
 import Dashboard from './components/Dashboard/Dashboard'
@@ -32,6 +32,7 @@ export default class App extends Component {
       </>
     )
 }
+
 
   render(){
     return (
