@@ -1,5 +1,4 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
 import './SignUp.css'
 
 export default class SignUp extends React.Component{

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import Album from '../Album/Album'
 import Photo from '../Photo/Photo'
 import AddAlbum from '../AddAlbum/AddAlbum'
