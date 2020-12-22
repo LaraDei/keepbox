@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import Dashboard from './components/Dashboard/Dashboard'
 import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignUp/SignUp'
+import config from './config'
 import './App.css'
 
 export default class App extends Component {
