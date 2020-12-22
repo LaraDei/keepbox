@@ -1,0 +1,19 @@
+.Dashboard{
+    display: grid;
+    grid-template-areas: "sidebar header" "sidebar main";
+    grid-template-columns: .75fr 2.3fr;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
+}
+.Dashboard-nav{
+    background-color: rgb(194, 193, 193);
+    padding-top: 75px;
+    grid-area: sidebar;
+    height: 100vh;
+    overflow: auto;
+}
+
+.dashboard-main{
+    grid-area: main;
+    overflow: auto;
+}

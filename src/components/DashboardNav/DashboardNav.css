@@ -1,0 +1,27 @@
+
+.DashboardNav-list{
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 130px 0 0;
+    max-width: 180px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.DashboardNav-album-link{
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    background-color: grey;
+    color: white;
+    margin: 0 0 8px auto;
+}
+
+.DashboardNav-album-link:hover{
+    cursor: pointer;
+}
+
+.DashboardNav-album-link.active {
+    background-color: rgb(77, 74, 74);
+  }
