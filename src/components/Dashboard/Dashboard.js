@@ -1,15 +1,22 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
 import Album from '../Album/Album'
-import Photo from '../Photo/Photo'
 import AddAlbum from '../AddAlbum/AddAlbum'
 import AddPhoto from '../AddPhoto/AddPhoto'
 import DashboardNav from '../DashboardNav/DashboardNav'
-import './Dashboard.css'
 import DashboardMain from '../DashboardMain/DashboardMain'
+import Context from '../../context'
+import './Dashboard.css'
+import DashboardPhoto from '../DashboardPhoto/DashboardPhoto'
 
 export default class Dashboard extends Component{
-
+    static defaultProps = {
+        match: {
+          params: {}
+        }
+      }
+      
+    static contextType = Context
 
     renderNavDashRoutes() {
         return (
@@ -37,7 +44,7 @@ export default class Dashboard extends Component{
                 />
             ))}
             <Route exact path='/user' component={DashboardMain}/>
-            <Route path='/user/photo/:photoId' component={Photo}/>
+            <Route path='/user/photo/:photoId' component={DashboardPhoto}/>
             <Route path='/user/add-album' component={AddAlbum} />
             <Route path='/user/add-photo' component={AddPhoto} />
           </>

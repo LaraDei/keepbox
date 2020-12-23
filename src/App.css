@@ -24,16 +24,6 @@ footer {
   padding: 75px 0 35px;
 }
 
-section {
-  min-height: 200px;
-  padding: 30px 15px;
-  background-color: #bbb;
-}
-
-section:nth-child(even) {
-  background-color: #ddd;
-}
-
 p {
   margin: 0 auto;
   max-width: 650px;

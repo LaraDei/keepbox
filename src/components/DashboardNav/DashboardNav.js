@@ -1,20 +1,25 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
+import Context from '../../context'
 import './DashboardNav.css'
 
 export default class DashboardNav extends Component{
+    static contextType = Context
     render(){
+        const { albums=[] } = this.context
         return(
             <div className='DashboardNav'>
                 <ul className='DashboardNav-list'>
-                    <li>
-                        <NavLink
-                          className='DashboardNav-album-link'
-                          to={`/user/album/:albumId`}
-                        >
-                        Album Name
-                        </NavLink>
-                    </li>
+                    {albums.map(album =>
+                        <li key={album.id}>
+                            <NavLink
+                            className='DashboardNav-album-link'
+                            to={`/user/album/${album.id}`}
+                            >
+                            {album.title}
+                            </NavLink>
+                        </li>
+                    )}
                 </ul>
                 <div className='DashboardNav-button-wrapper'>
                     <button>
