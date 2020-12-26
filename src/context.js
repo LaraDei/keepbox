@@ -8,4 +8,4 @@ export default React.createContext(
         addPhoto: () => {},
         addAlbum: () => {},
       }
-);
+)

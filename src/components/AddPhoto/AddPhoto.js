@@ -25,11 +25,11 @@ export default class AddPhoto extends Component{
     static contextType = Context
 
     updateName= title => {
-        this.setState({ title: { value: title, touched: true }});
-      };
+        this.setState({ title: { value: title, touched: true }})
+      }
 
     validateName= () => {
-        const title = this.state.title.value.trim();
+        const title = this.state.title.value.trim()
         if (title.length === 0) {
             return 'Note name can not be blank.'
         }

@@ -3,7 +3,7 @@ import Context from '../../context'
 import './AddAlbum.css'
 export default class AddAlbum extends Component{
     constructor(props){
-        super(props);
+        super(props)
         this.state={
             albumTitle: {
                 value: '',
@@ -18,7 +18,7 @@ export default class AddAlbum extends Component{
         }
     }
 
-    static contextType = Context;
+    static contextType = Context
 
     updateFolderName(title){
         this.setState({albumTitle: {value: title, touched: true}})

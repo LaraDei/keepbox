@@ -18,7 +18,7 @@ export default class App extends Component {
 
   componentDidMount() {
       // fake date loading from API call
-      setTimeout(() => this.setState(Store), 600);
+      setTimeout(() => this.setState(Store), 600)
   }
 
   handleDeletePhoto = photoId => {
