@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Context from '../../context'
+import  ValidationError from '../ValidationError/ValidationError'
 import './SignIn.css'
 
 
@@ -30,6 +31,14 @@ export default class SignIn extends Component{
         this.setState({ [key]: {value: value, touched: true}})
     }
 
+    validateEmail = ()=> {
+        const email = this.state.email.value.trim();
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        if (!pattern.test(email)) {
+            return "Please enter a valid email"
+        }
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         console.log('submit')
@@ -47,6 +56,7 @@ export default class SignIn extends Component{
                             onChange={e => this.updateValue(e.target.value, e.target.id)}
                             required
                     />
+                    {this.state.email.touched && (<ValidationError message={emailError} />)}
                     </div>
                     <div>
                     <label htmlFor="password">Password: </label>
