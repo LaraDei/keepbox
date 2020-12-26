@@ -78,7 +78,7 @@ export default class AddPhoto extends Component{
                     </div>
                     <div>
                         <p>Upload Photo: </p>
-                            <button type="select">select Photo</button>
+                            <button type="select">Select Photo</button>
                             <button type="submit">Submit</button>
                             <button type="reset">Reset</button>
                     </div>
