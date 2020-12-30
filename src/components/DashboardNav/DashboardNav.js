@@ -5,10 +5,15 @@ import './DashboardNav.css'
 
 export default class DashboardNav extends Component{
     static contextType = Context
+
+    closeNav() {
+        document.getElementById("DashboardNav").style.width = "0";
+    }
     render(){
         const { albums=[] } = this.context
         return(
-            <div className='DashboardNav'>
+            <div className='DashboardNav' id='DashboardNav'>
+                <button className="closebtn" onClick={e => this.closeNav()}>&times;</button>
                 <ul className='DashboardNav-list'>
                     {albums.map(album =>
                         <li key={album.id}>

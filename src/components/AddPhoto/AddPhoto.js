@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Context from '../../context'
+import SimpleFileUpload from 'react-simple-file-upload'
+import config from '../../config'
 import './AddPhoto.css'
 
 
@@ -26,6 +28,7 @@ export default class AddPhoto extends Component{
 
     updateName= title => {
         this.setState({ title: { value: title, touched: true }})
+        console.log(this.state.title.value)
       }
 
     validateName= () => {
@@ -34,23 +37,28 @@ export default class AddPhoto extends Component{
             return 'Note name can not be blank.'
         }
       }
+    handleFile(url){
+        console.log('The URL of the file is ' + url)
+    }
 
     render(){
         const { albums=[] } = this.context
         return(
             <div className='AddPhoto'>
                 <h2>Upload a New Photo</h2>
+                <p>*required</p>
+                
                 <form className='add-photo-form'>
                     <div>
-                        <label htmlFor="photo-caption">Photo Caption: </label>
-                        <input type="text" name="photo-caption" placeholder="Birthday card" required/>
+                        <label htmlFor="photo-caption">* Photo Caption: </label>
+                        <input type="text" name="photo-caption" placeholder="Birthday card*" onChange={e => this.updateName(e.target.value)} required/>
                     </div>
                     <div>
                         <label htmlFor="photo-summary">Photo summary: </label>
-                        <textarea name="photo-summary" rows="15" required></textarea>
+                        <textarea name="photo-summary" rows="15"></textarea>
                     </div>
                     <div>
-                        <label htmlFor="album-select">Albums: </label>
+                        <label htmlFor="album-select">* Albums: </label>
                         <select id='album-select' name='album-id' required> 
                             <option value="" >...</option>
                             {albums.map(album =>
@@ -60,12 +68,8 @@ export default class AddPhoto extends Component{
                             )}
                         </select>
                     </div>
-                    <div>
-                        <label htmlFor="photo-summary-child">Photo summary in child's words: </label>
-                        <textarea name="photo-summary" rows="15" required></textarea>
-                    </div>
                     <div className='AddPhoto-form-date'>
-                        <label className="photo-date label" htmlFor="date-month">Date of Creation: </label>
+                        <label className="photo-date label" htmlFor="date-month">* Date of Creation: </label>
                         <div className="photo-date">
                         <input  type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" required=""/> /
                         <input  type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required=""/> /
@@ -77,10 +81,12 @@ export default class AddPhoto extends Component{
                         <input type="number" name="child-age" id="child-age" placeholder="4" required/>
                     </div>
                     <div>
-                        <p>Upload Photo: </p>
-                            <button type="select">Select Photo</button>
-                            <button type="submit">Submit</button>
-                            <button type="reset">Reset</button>
+                        <p>* Upload Photo: </p>
+                        <SimpleFileUpload apiKey={config.API_KEY} onSuccess={e => this.handleFile} />
+                    <div>
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
                     </div>
                 </form>
             </div>

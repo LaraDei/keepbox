@@ -18,6 +18,11 @@ export default class Dashboard extends Component{
       
     static contextType = Context
 
+    openNav(){
+        document.getElementById("DashboardNav").style.width = "250px";
+        
+    }
+
     renderNavDashRoutes() {
         return (
           <>
@@ -54,10 +59,11 @@ export default class Dashboard extends Component{
     render(){
         return(
             <div className='Dashboard'>
-                <nav className='Dashboard-nav'>  
-                    {this.renderNavDashRoutes()}
-                </nav>
+                <div className='Dashboard-nav'>
+                {this.renderNavDashRoutes()}
+                </div>
                 <div className="dashboard-main">
+                <button className='Dashboard-link' onClick={e => this.openNav()} >&#9776; open</button>  
                     {this.renderMainDashRoutes()}
                 </div>
             </div>

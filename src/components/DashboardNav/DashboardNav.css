@@ -1,3 +1,15 @@
+.DashboardNav{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
 
 .DashboardNav-list{
     padding: 0;
@@ -10,18 +22,28 @@
 }
 
 .DashboardNav-album-link{
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
+    font-size: 25px;
+    color: #818181;
     display: block;
-    padding: 8px 16px;
-    background-color: grey;
-    color: white;
-    margin: 0 0 8px auto;
+    transition: 0.3s;
 }
 
 .DashboardNav-album-link:hover{
     cursor: pointer;
+    color: #f1f1f1;
 }
 
 .DashboardNav-album-link.active {
     background-color: rgb(77, 74, 74);
+  }
+
+.closebtn {
+    margin-left: 80%;
+}
+
+  @media screen and (max-height: 450px) {
+    .DashboardNav {padding-top: 15px;}
+    .DashboardNav a {font-size: 18px;}
   }

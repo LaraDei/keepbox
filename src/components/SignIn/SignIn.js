@@ -52,7 +52,7 @@ export default class SignIn extends Component{
                 <form className='signin-form' onSubmit={this.handleSubmit}>
                     <div>
                     <label htmlFor="email">Email: </label>
-                    <input placeholder='email' type="text" name='email' id='email'
+                    <input placeholder='email*' type="text" name='email' id='email'
                            autoComplete='email'
                             onChange={e => this.updateValue(e.target.value, e.target.id)}
                             required
@@ -62,12 +62,12 @@ export default class SignIn extends Component{
                     <div>
                     <label htmlFor="password">Password: </label>
                     <input type="password" name='password' id='password'
-                            placeholder='password' autoComplete='current-password'
+                            placeholder='password*' autoComplete='current-password'
                             onChange={e => this.updateValue(e.target.value, e.target.id)}
                             required
                     />
                     </div>
-                    <button type='submit'>Sign Up</button>
+                    <button type='submit'>Sign In</button>
                 </form>
             </div>
         )

@@ -56,34 +56,43 @@ export default class SignUp extends React.Component{
         return(
             <div className='SignUp'>
                 <header>
-                    <h3>Create an Account</h3>
+                    <h1>Create an Account</h1>
                 </header>
                 <form className='signup-form' onSubmit={this.handleSubmit}>
+                 
                     <div>
                         <label htmlFor="first-name">First name: </label>
-                        <input placeholder='First Name' type="text" name='first-name' id='firstName' 
+                        <input placeholder='First Name*' type="text" name='first-name' id='firstName' 
                                onChange={e => this.updateValue(e.target.value, e.target.id)} 
                                required />
                     </div>
                     <div>
-                        <label htmlFor="last-name">Last name: </label>
+                        <label htmlFor="last-name*">Last name: </label>
                         <input type="text" name='last-name' id='lastName' placeholder='Last Name'
                                onChange={e => this.updateValue(e.target.value, e.target.id)}
                                required/>
                     </div>
                     <div>
                         <label htmlFor="email">Email: </label>
-                        <input type="text" name='email' id='email' placeholder='email' autoComplete='email'
+                        <input type="text" name='email' id='email' placeholder='email*' autoComplete='email'
                                onChange={e => this.updateValue(e.target.value, e.target.id)}
                                required/>
                         {this.state.email.touched && (<ValidationError message={emailError} />)}
                     </div>
                     <div>
                         <label htmlFor="password">Password: </label>
-                        <input type="password" name='password' id='password' placeholder='password' autoComplete='new-password'
+                
+                        <input type="password" name='password' id='password' placeholder='password*' autoComplete='new-password'
                                onChange={e => this.updateValue(e.target.value, e.target.id)}
-                               minLength="8" maxLength = "20"
+                               minLength="8" maxLength = "25"
                                required/>
+                        <ul className="password">
+                            *password must include: 
+                            <li>8-25 characters</li>
+                            <li>At least one capital letter</li>
+                            <li>At least one number</li>
+                            <li>no spaces</li>
+                        </ul>
                     </div>
                         <button type='submit'>Sign Up</button>
                 </form>

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import SignUp from '../SignUp/SignUp'
 import './LandingPage.css'
 
 export default class LandingPage extends Component{
@@ -31,7 +30,6 @@ export default class LandingPage extends Component{
                     <p>[<em>placeholder for screenshot of photo stats/tags UI</em>]</p>
                     <p>Interactive photo details help you track your child's creative milestones.</p>
                 </section>
-                <SignUp/>
            </div>
         )
     }

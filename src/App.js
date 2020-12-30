@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignUp/SignUp'
 import Context from './context'
-//import config from './config'
+import config from './config'
 import Store from './Store'
 import './App.css'
 
@@ -83,7 +83,7 @@ export default class App extends Component {
         <main className="app-main">
           {this.renderMainRoutes()}
         </main>
-        <footer>Footer</footer>
+        <footer>Keepbox</footer>
       </div>
       </Context.Provider>
     )
