@@ -82,7 +82,7 @@ export default class AddPhoto extends Component{
                     </div>
                     <div>
                         <p>* Upload Photo: </p>
-                        <SimpleFileUpload apiKey={config.API_KEY} onSuccess={e => this.handleFile} />
+                        <SimpleFileUpload apiKey={config.API_KEY_PHOTO} onSuccess={e => this.handleFile} />
                     <div>
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
