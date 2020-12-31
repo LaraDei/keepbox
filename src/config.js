@@ -4,4 +4,5 @@ export default {
     API_KEY_PHOTO: process.env.REACT_APP_PHOTO_API_KEY,
     API_KEY: process.env.REACT_APP_API_KEY,
     TOKEN_KEY: 'keepbox-client-auth-token',
+    NODE_ENV: process.env.NODE_ENV || 'development',
 }
