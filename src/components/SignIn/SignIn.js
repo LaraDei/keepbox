@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Context from '../../context'
 import  ValidationError from '../ValidationError/ValidationError'
+import AuthApiService from '../../services/auth-api-service'
+import TokenService from '../../services/token-service'
 import './SignIn.css'
 
 
@@ -20,12 +22,34 @@ export default class SignIn extends Component{
     }
 
     static defaultProps = {
+        onLoginSuccess: () => {},
         history: {
           push: () => {}
         }
     }
 
     static contextType = Context
+
+    handleSubmitJwtAuth = ev => {
+        ev.preventDefault()
+        this.setState({ error: null })
+        const { email, password } = ev.target
+        
+        AuthApiService.postLogin({
+            email: email.value,
+            password: password.value,
+        })
+            .then(res => {
+               email.value = ''
+               password.value = ''
+               TokenService.saveAuthToken(res.authToken)
+               this.props.onLoginSuccess()
+            })
+            .catch(res => {
+               this.setState({ error: res.error })
+            })
+    }
+        
 
     updateValue= (value, key) => {
         this.setState({ [key]: {value: value, touched: true}})
@@ -49,7 +73,7 @@ export default class SignIn extends Component{
         return(
             <div className="SignIn">
                 <h1>Sign In</h1>
-                <form className='signin-form' onSubmit={this.handleSubmit}>
+                <form className='signin-form' onSubmit={this.handleSubmitJwtAuth}>
                     <div>
                     <label htmlFor="email">Email: </label>
                     <input placeholder='email*' type="text" name='email' id='email'

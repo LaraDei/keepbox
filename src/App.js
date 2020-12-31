@@ -12,9 +12,11 @@ import './App.css'
 
 export default class App extends Component {
   state = {
+    location: {},
     photos: [],
     albums: []
   }
+  
 
   componentDidMount() {
       // fake date loading from API call
@@ -41,6 +43,17 @@ export default class App extends Component {
           photos: [...this.state.photos, photo]
         },
     )
+  }
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/'
+    history.push(destination)
+  }
+
+  handleRegistrationSuccess = user => {
+    const { history } = this.props
+    history.push('/login')
   }
 
   renderMainRoutes(){

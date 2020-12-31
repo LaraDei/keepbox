@@ -1,5 +1,6 @@
 import React from 'react'
 import Context from '../../context'
+import AuthApiService from '../../services/auth-api-service'
 import  ValidationError from '../ValidationError/ValidationError'
 import './SignUp.css'
 
@@ -7,11 +8,7 @@ export default class SignUp extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            firstName: {
-                value: '',
-                touched: false
-            },
-            lastName: {
+            full_name: {
                 value: '',
                 touched: false
             },
@@ -27,6 +24,7 @@ export default class SignUp extends React.Component{
     }
 
     static defaultProps = {
+        onRegistrationSuccess: () => {},
         history: {
           push: () => {}
         }
@@ -48,7 +46,23 @@ export default class SignUp extends React.Component{
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log('submit')
+        const { full_name, email, password } = e.target
+        this.setState({ error: null })
+        AuthApiService.postUser({
+          email: email.value,
+          password: password.value,
+          full_name: full_name.value
+        })
+        .then(user => {
+        full_name.value = ''
+        email.value = ''
+        password.value = ''
+        this.props.onRegistrationSuccess()
+        this.history.push('/login')
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
     }
 
     render(){
@@ -61,21 +75,15 @@ export default class SignUp extends React.Component{
                 <form className='signup-form' onSubmit={this.handleSubmit}>
                  
                     <div>
-                        <label htmlFor="first-name">First name: </label>
-                        <input placeholder='First Name*' type="text" name='first-name' id='firstName' 
-                               onChange={e => this.updateValue(e.target.value, e.target.id)} 
+                        <label htmlFor="full_name">Full name: </label>
+                        <input placeholder='Full Name*' type="text" name='full_name' id='fullName' 
+                            
                                required />
-                    </div>
-                    <div>
-                        <label htmlFor="last-name*">Last name: </label>
-                        <input type="text" name='last-name' id='lastName' placeholder='Last Name'
-                               onChange={e => this.updateValue(e.target.value, e.target.id)}
-                               required/>
                     </div>
                     <div>
                         <label htmlFor="email">Email: </label>
                         <input type="text" name='email' id='email' placeholder='email*' autoComplete='email'
-                               onChange={e => this.updateValue(e.target.value, e.target.id)}
+                             
                                required/>
                         {this.state.email.touched && (<ValidationError message={emailError} />)}
                     </div>
@@ -86,16 +94,16 @@ export default class SignUp extends React.Component{
                                onChange={e => this.updateValue(e.target.value, e.target.id)}
                                minLength="8" maxLength = "25"
                                required/>
-                        <ul className="password">
+                    </div>
+                        <button type='submit'>Sign Up</button>
+                </form>
+                <ul className="password">
                             *password must include: 
                             <li>8-25 characters</li>
                             <li>At least one capital letter</li>
                             <li>At least one number</li>
                             <li>no spaces</li>
                         </ul>
-                    </div>
-                        <button type='submit'>Sign Up</button>
-                </form>
             </div>
         )
     }
