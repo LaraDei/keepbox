@@ -9,7 +9,7 @@
     "date-fns": "^2.16.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.1",
-    "react": "^17.0.1",
+    "react": "^16.14.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -18,9 +18,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "react-scripts test",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "vercel --prod"
+
   },
   "eslintConfig": {
     "extends": [
