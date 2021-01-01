@@ -24,13 +24,14 @@ export default class SignUp extends React.Component{
     }
 
     static defaultProps = {
-        onRegistrationSuccess: () => {},
         history: {
           push: () => {}
         }
     }
 
     static contextType = Context
+
+
 
     updateValue= (value, key) => {
         this.setState({ [key]: {value: value, touched: true}})
@@ -43,6 +44,11 @@ export default class SignUp extends React.Component{
             return "Please enter a valid email"
         }
     }
+
+    handleRegistrationSuccess = user => {
+        const { history } = this.props
+        history.push('/login')
+      }
 
     handleSubmit = e => {
         e.preventDefault()
@@ -57,8 +63,8 @@ export default class SignUp extends React.Component{
         full_name.value = ''
         email.value = ''
         password.value = ''
-        this.props.onRegistrationSuccess()
-        this.history.push('/login')
+        this.handleRegistrationSuccess()
+        this.history.push('/sign-in')
       })
       .catch(res => {
         this.setState({ error: res.error })

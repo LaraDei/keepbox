@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import TokenService from '../../services/token-service'
 import './NavBar.css'
 
-export default function NavBar() {
-    function handleNav() {
+export default class NavBar extends Component {
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+      }
+    
+      renderLogoutLink() {
+        return (
+          <div className='Header__logged-in'>
+            <Link
+              onClick={this.handleLogoutClick}
+              to='/'>
+              Logout
+            </Link>
+          </div>
+        )
+      }
+    
+      renderLoginLink() {
+        return (
+          <div className='Header__not-logged-in'>
+            <Link
+              to='/sign-in'>
+              Sign in
+            </Link>
+          </div>
+        )
+      }
+   handleNav() {
         var x = document.getElementById("menu");
         if (x.className === "menu") {
             x.className += " responsive";
@@ -11,16 +38,21 @@ export default function NavBar() {
             x.className = "menu";
           }
       }
-    return(
-        <div className="nav-bar">
-        <ul id='menu' className='menu'>
-            <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/sign-in'}>Sign In</Link></li>
-            <li><Link to={'/sign-up'}>Create Account</Link></li>
-            <li><Link to={'/user'}>Demo</Link></li>
-        </ul>
-        <button className='icon' onClick={e => handleNav()}>&#9776;</button>
-        </div>
-    )
+
+      render() {
+        return(
+            <div className="nav-bar">
+            <ul id='menu' className='menu'>
+                <li><Link to={'/'}>Home</Link></li>
+                <li>{TokenService.hasAuthToken()
+            ? this.renderLogoutLink()
+            : this.renderLoginLink()}</li>
+                <li><Link to={'/sign-up'}>Create Account</Link></li>
+                <li><Link to={'/user'}>Demo</Link></li>
+            </ul>
+            <button className='icon' onClick={e => this.handleNav()}>&#9776;</button>
+            </div>
+        )
+    }
 }
 

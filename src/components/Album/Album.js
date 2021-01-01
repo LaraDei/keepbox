@@ -13,11 +13,11 @@ export default class Album extends Component{
       
     static contextType = Context
     render(){
-        const { albumId } = this.props.match.params
+        const { id } = this.props.match.params
         const { photos=[] } = this.context
         const{ albums=[] } = this.context
-        const album = findAlbum(albums, albumId)
-        const photosForAlbum = getPhotosForAlbum(photos, albumId)
+        const album = findAlbum(albums, id)
+        const photosForAlbum = getPhotosForAlbum(photos, id)
         return(
             <div className='Album'>
                 <h2>{album.title}</h2>

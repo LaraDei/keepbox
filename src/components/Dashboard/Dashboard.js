@@ -5,22 +5,30 @@ import AddAlbum from '../AddAlbum/AddAlbum'
 import AddPhoto from '../AddPhoto/AddPhoto'
 import DashboardNav from '../DashboardNav/DashboardNav'
 import DashboardMain from '../DashboardMain/DashboardMain'
-import Context from '../../context'
+import context from '../../context'
+import AlbumApiService from '../../services/album-api-service'
 import './Dashboard.css'
 import DashboardPhoto from '../DashboardPhoto/DashboardPhoto'
 
 export default class Dashboard extends Component{
-    static defaultProps = {
-        match: {
-          params: {}
-        }
-      }
+static contextType = context
       
-    static contextType = Context
+    componentDidMount() {
+      const albumCall =  AlbumApiService.getAlbums()
+      const photoCall = AlbumApiService.getPhotos()
+       Promise.all([albumCall, photoCall]) 
+          .then(([albums, photos]) => { 
+            this.context.setAlbumList(albums)
+            this.context.setPhotoList(photos)
+          })
+        
+        .catch(error => {
+          console.error({error});
+        })
+    }   
 
     openNav(){
         document.getElementById("DashboardNav").style.width = "250px";
-        
     }
 
     renderNavDashRoutes() {
@@ -57,6 +65,7 @@ export default class Dashboard extends Component{
     }
 
     render(){
+      console.log(this.context)
         return(
             <div className='Dashboard'>
                 <div className='Dashboard-nav'>

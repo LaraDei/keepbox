@@ -1,39 +1,34 @@
 import React, {Component} from 'react'
 import Context from '../../context'
+import AlbumApiService from '../../services/album-api-service'
 import './AddAlbum.css'
-export default class AddAlbum extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-            albumTitle: {
-                value: '',
-                touched: false
-            }
-        }
-    }
 
-    static defaultProps = {
-        history: {
-          push: () => {}
-        }
-    }
+export default class AddAlbum extends Component{
 
     static contextType = Context
 
-    updateFolderName(title){
-        this.setState({albumTitle: {value: title, touched: true}})
-    }
-
+    handleAlbumSubmit= e => {
+        e.preventDefault()
+        const {title} = e.target
+        AlbumApiService.postAlbum({title: title.value})
+        .then(resAlbum => {
+          this.context.addAlbum(resAlbum)
+          //this.props.history.push(`/user`)
+        })
+        .catch(error => {
+          console.error('add album ',{ error })
+        })
+      }
 
 
     render(){
         return(
             <div className='AddAlbum'>
                 <h2>Create a New Album</h2>
-                <form className='AddAlbum-form'>
+                <form className='AddAlbum-form' onSubmit={this.handleAlbumSubmit}>
                     <div>
-                    <label htmlFor='Album Name'>Album Name: </label>
-                    <input placeholder='Album Name*' type="text" name='album-name' id='album-name' required />
+                    <label htmlFor='Album Title'>Album Title: </label>
+                    <input placeholder='Album Title*' type="text" name='title' id='title' required />
                     </div>
                     <button type='submit'>Save</button>
                 </form>

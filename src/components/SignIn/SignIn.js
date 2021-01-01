@@ -22,10 +22,17 @@ export default class SignIn extends Component{
     }
 
     static defaultProps = {
-        onLoginSuccess: () => {},
+        location: {},
         history: {
           push: () => {}
         }
+    }
+
+    handleLoginSuccess = () => {
+        console.log(this.props)
+        const { history } = this.props
+        const destination = '/user'
+        history.push(destination)
     }
 
     static contextType = Context
@@ -42,8 +49,10 @@ export default class SignIn extends Component{
             .then(res => {
                email.value = ''
                password.value = ''
+               console.log(res.authToken)
+               console.log(this.props)
                TokenService.saveAuthToken(res.authToken)
-               this.props.onLoginSuccess()
+               this.handleLoginSuccess()
             })
             .catch(res => {
                this.setState({ error: res.error })

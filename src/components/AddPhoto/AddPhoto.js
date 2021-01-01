@@ -1,43 +1,34 @@
 import React, {Component} from 'react'
 import Context from '../../context'
 import SimpleFileUpload from 'react-simple-file-upload'
+import AlbumApiService from '../../services/album-api-service'
 import config from '../../config'
 import './AddPhoto.css'
 
 
 export default class AddPhoto extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            error: null,
-            title: {
-                value: '',
-                touched: false,
-                valid: false,
-            },
-        }
-    }
+   static contextType = Context
 
-    static defaultProps = {
-        history: {
-          push: () => {}
-        },
-    }
-
-    static contextType = Context
-
-    updateName= title => {
-        this.setState({ title: { value: title, touched: true }})
-        console.log(this.state.title.value)
-      }
-
-    validateName= () => {
-        const title = this.state.title.value.trim()
-        if (title.length === 0) {
-            return 'Note name can not be blank.'
-        }
-      }
-    handleFile(url){
+   handlePhotoSubmit= e => {
+    e.preventDefault()
+    const {caption, summary, file_location, date_created, album_id, age } = e.target
+    AlbumApiService.postPhoto({
+        caption: caption.value, 
+        summary: summary.value,
+        file_location: file_location.value,
+        date_created: date_created.value,
+        album_id: album_id.value,
+        age: age.value
+    })
+    .then(resPhoto => {
+      this.context.addPhoto(resPhoto)
+    })
+    .catch(error => {
+      console.error('add photo ',{ error })
+    })
+  }
+  
+  handleFile(url){
         console.log('The URL of the file is ' + url)
     }
 
@@ -51,7 +42,7 @@ export default class AddPhoto extends Component{
                 <form className='add-photo-form'>
                     <div>
                         <label htmlFor="photo-caption">* Photo Caption: </label>
-                        <input type="text" name="photo-caption" placeholder="Birthday card*" onChange={e => this.updateName(e.target.value)} required/>
+                        <input type="text" name="photo-caption" placeholder="Birthday card*"  required/>
                     </div>
                     <div>
                         <label htmlFor="photo-summary">Photo summary: </label>
@@ -71,18 +62,18 @@ export default class AddPhoto extends Component{
                     <div className='AddPhoto-form-date'>
                         <label className="photo-date label" htmlFor="date-month">* Date of Creation: </label>
                         <div className="photo-date">
-                        <input  type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" required=""/> /
-                        <input  type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required=""/> /
-                        <input  type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2017" required=""/>
+                        <input  type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" /> /
+                        <input  type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" /> /
+                        <input  type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2021" />
                         </div>
                     </div>
                     <div>
                         <label htmlFor="child-age">Child's Age: </label>
-                        <input type="number" name="child-age" id="child-age" placeholder="4" required/>
+                        <input type="number" name="child-age" id="child-age" placeholder="4"/>
                     </div>
                     <div>
                         <p>* Upload Photo: </p>
-                        <SimpleFileUpload apiKey={config.API_KEY_PHOTO} onSuccess={e => this.handleFile} />
+                        <SimpleFileUpload apiKey={config.API_KEY_PHOTO} onSuccess={this.handleFile} className="simple-file-upload" />
                     <div>
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
