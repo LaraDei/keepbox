@@ -13,7 +13,7 @@ export default class AddAlbum extends Component{
         AlbumApiService.postAlbum({title: title.value})
         .then(resAlbum => {
           this.context.addAlbum(resAlbum)
-          //this.props.history.push(`/user`)
+          this.props.history.push(`/user`)
         })
         .catch(error => {
           console.error('add album ',{ error })

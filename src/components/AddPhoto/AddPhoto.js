@@ -39,7 +39,7 @@ export default class AddPhoto extends Component{
                 <h2>Upload a New Photo</h2>
                 <p>*required</p>
                 
-                <form className='add-photo-form'>
+                <form className='add-photo-form' onSubmit={this.handlePhotoSubmit}>
                     <div>
                         <label htmlFor="photo-caption">* Photo Caption: </label>
                         <input type="text" name="photo-caption" placeholder="Birthday card*"  required/>
