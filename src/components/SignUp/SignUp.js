@@ -1,7 +1,6 @@
 import React from 'react'
 import Context from '../../context'
 import AuthApiService from '../../services/auth-api-service'
-import  ValidationError from '../ValidationError/ValidationError'
 import './SignUp.css'
 
 export default class SignUp extends React.Component{
@@ -19,7 +18,9 @@ export default class SignUp extends React.Component{
             password: {
                 value: '',
                 touched: false
-            }
+            },
+            error: null,
+            emailError: null
         }
     }
 
@@ -35,13 +36,14 @@ export default class SignUp extends React.Component{
 
     updateValue= (value, key) => {
         this.setState({ [key]: {value: value, touched: true}})
+        this.validateEmail()
     }
 
     validateEmail = ()=> {
         const email = this.state.email.value.trim()
         var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i)
         if (!pattern.test(email)) {
-            return "Please enter a valid email"
+            this.setState({ emailError: "Please enter a valid email" })
         }
     }
 
@@ -72,14 +74,17 @@ export default class SignUp extends React.Component{
     }
 
     render(){
-        const emailError = this.validateEmail()
+        const { emailError } = this.state
+        const { error } = this.state
         return(
             <div className='SignUp'>
                 <header>
                     <h1>Create an Account</h1>
                 </header>
                 <form className='signup-form' onSubmit={this.handleSubmit}>
-                 
+                    <div role='alert'>
+                        {error && <p className='red'>{error}</p>}
+                    </div>
                     <div>
                         <label htmlFor="full_name">Full name: </label>
                         <input placeholder='Full Name*' type="text" name='full_name' id='fullName' 
@@ -91,7 +96,7 @@ export default class SignUp extends React.Component{
                         <input type="text" name='email' id='email' placeholder='email*' autoComplete='email'
                              
                                required/>
-                        {this.state.email.touched && (<ValidationError message={emailError} />)}
+                        {emailError && <p className='red'>{emailError}</p>}
                     </div>
                     <div>
                         <label htmlFor="password">Password: </label>

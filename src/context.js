@@ -59,6 +59,7 @@ export class AlbumListProvider extends Component {
     const value = {
       albums: this.state.albums,
       photos: this.state.photos,
+      isLoggedIn: this.state.isLoggedIn,
       setAlbumList: this.setAlbumList,
       setPhotoList: this.setPhotoList,
       addPhoto: this.addPhoto,

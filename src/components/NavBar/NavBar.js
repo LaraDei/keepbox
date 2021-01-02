@@ -65,7 +65,7 @@ export default class NavBar extends Component {
             ? this.renderLogoutLink()
             : this.renderLoginLink()}</li>
                 <li><Link to={'/sign-up'}>Create Account</Link></li>
-                <li><Link to={'/user'}>Demo</Link></li>
+                <li><Link to={'/user'}>Dasboard</Link></li>
             </ul>
             <button className='icon' onClick={e => this.handleNav()}>&#9776;</button>
             </div>

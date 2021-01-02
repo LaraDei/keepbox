@@ -1,18 +1,35 @@
-import React, {Component} from 'react'
+import React, {Component, useState} from 'react'
 import Context from '../../context'
 import SimpleFileUpload from 'react-simple-file-upload'
 import AlbumApiService from '../../services/album-api-service'
 //import config from '../../config'
 import './AddPhoto.css'
 
+function PhotoDrop (){
+    const [file, setFile] = useState();
+    console.log(file)
+    return(
+        <div>
+        <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254c60ff6e" onSuccess ={setFile}/>
+        <p> Uploaded: {file}</p>
+        </div>
+    )
 
+}
 export default class AddPhoto extends Component{
+    static defaultProps ={
+        history: {
+            push: () => {}
+          },
+    }
 
       static contextType = Context
 
    handlePhotoSubmit= e => {
     e.preventDefault()
+    console.log(e.target)
     const {caption, summary, file_location, date_created, album_id, age } = e.target
+    console.log(caption)
     AlbumApiService.postPhoto({
         caption: caption.value, 
         summary: summary.value,
@@ -23,6 +40,8 @@ export default class AddPhoto extends Component{
     })
     .then(resPhoto => {
       this.context.addPhoto(resPhoto)
+      this.props.history.push('/user')
+      
     })
     .catch(error => {
       console.error('add photo ',{ error })
@@ -44,15 +63,15 @@ export default class AddPhoto extends Component{
                 <form className='add-photo-form' onSubmit={this.handlePhotoSubmit}>
                     <div>
                         <label htmlFor="photo-caption">* Photo Caption: </label>
-                        <input type="text" name="photo-caption" placeholder="Birthday card*"  required/>
+                        <input type="text" name="caption" placeholder="Birthday card*"  required/>
                     </div>
                     <div>
                         <label htmlFor="photo-summary">Photo summary: </label>
-                        <textarea name="photo-summary" rows="15"></textarea>
+                        <textarea name="summary" ></textarea>
                     </div>
                     <div>
                         <label htmlFor="album-select">* Albums: </label>
-                        <select id='album-select' name='album-id' required> 
+                        <select id='album-select' name='album_id' required> 
                             <option value="" >...</option>
                             {albums.map(album =>
                                 <option key={album.id} value={album.id}>
@@ -61,26 +80,23 @@ export default class AddPhoto extends Component{
                             )}
                         </select>
                     </div>
-                    <div className='AddPhoto-form-date'>
-                        <label className="photo-date label" htmlFor="date-month">* Date of Creation: </label>
-                        <div className="photo-date">
-                        <input  type="number" name="date-month" id="date-month" placeholder="01" min="1" max="12" /> /
-                        <input  type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" /> /
-                        <input  type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2021" />
-                        </div>
+                    <div className='date'>
+                        <label className="photo-date" htmlFor="date"> Date of Creation: </label>
+                        <textarea name="date_created" ></textarea>
                     </div>
                     <div>
                         <label htmlFor="child-age">Child's Age: </label>
-                        <input type="number" name="child-age" id="child-age" placeholder="4"/>
+                        <input type="number" name="age" id="child-age" placeholder="4"/>
                     </div>
                     <div>
                         <p>* Upload Photo: </p>
-                        
-                        <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254c60ff6e" onSuccess ={this.handleFile} className="simple-file-upload"/>
+                        <label htmlFor="photo-url">* Photo URL: </label>
+                        <textarea name="file_location" ></textarea>
+                        <PhotoDrop/>
+                    </div>
                     <div>
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
-                    </div>
                     </div>
                 </form>
             </div>

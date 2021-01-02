@@ -15,7 +15,6 @@ export default class Photo extends Component{
 
     render(){
         const { caption, id, url } = this.props
-        console.log(this.props)
         return(
             <div className='Photo'>
                     <p><Link to={`/user/photo/${id}`}>
