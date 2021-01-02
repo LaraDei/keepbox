@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Context from '../../context'
 import SimpleFileUpload from 'react-simple-file-upload'
 import AlbumApiService from '../../services/album-api-service'
-import config from '../../config'
+//import config from '../../config'
 import './AddPhoto.css'
 
 
