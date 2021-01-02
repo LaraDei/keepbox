@@ -65,7 +65,6 @@ static contextType = context
     }
 
     render(){
-      console.log(this.context)
         return(
             <div className='Dashboard'>
                 <div className='Dashboard-nav'>

@@ -4,6 +4,8 @@ import Context from '../../context'
 import './Photo.css'
 
 export default class Photo extends Component{
+    static contextType = Context
+    
     static defaultProps ={
         onDeletePhoto: () => {},
         history: {
@@ -11,20 +13,20 @@ export default class Photo extends Component{
           },
     }
 
-    static contextType = Context
-
     render(){
-        const { caption, id, author, age, thumbnail } = this.props
+        const { caption, id, url } = this.props
+        console.log(this.props)
         return(
             <div className='Photo'>
-                <p className='photo-caption'>
-                    <Link to={`/user/photo/${id}`}>
-                    <img  src={thumbnail} alt={caption}/>
-                    </Link>
-                </p>
-                <p>{author}</p>
-                <p>Age :{age}</p>
+                    <p><Link to={`/user/photo/${id}`}>
+                    {caption}
+                    </Link></p>
+                    <div>
+                    <img  src={url} alt={caption}/>
+                    </div>
             </div>
         )
     }
 }
+
+

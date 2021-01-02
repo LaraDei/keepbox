@@ -7,7 +7,8 @@ import './AddPhoto.css'
 
 
 export default class AddPhoto extends Component{
-   static contextType = Context
+
+      static contextType = Context
 
    handlePhotoSubmit= e => {
     e.preventDefault()
@@ -28,9 +29,10 @@ export default class AddPhoto extends Component{
     })
   }
   
-  handleFile(url){
-        console.log('The URL of the file is ' + url)
-    }
+  handleFile = url => {
+      console.log(url)
+  }
+
 
     render(){
         const { albums=[] } = this.context
@@ -73,7 +75,8 @@ export default class AddPhoto extends Component{
                     </div>
                     <div>
                         <p>* Upload Photo: </p>
-                        <SimpleFileUpload apiKey={config.API_KEY_PHOTO} onSuccess={this.handleFile} className="simple-file-upload" />
+                        
+                        <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254" onSuccess ={this.handleFile} className="simple-file-upload"/>
                     <div>
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>

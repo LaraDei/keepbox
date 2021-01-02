@@ -10,7 +10,7 @@ export const getPhotosForAlbum = (photos=[], albumId) => (
   (!albumId)
     ? photos
     // eslint-disable-next-line
-    : photos.filter(photo => photo.albumId == albumId)
+    : photos.filter(photo => photo.album_id == albumId)
 )
 
 

@@ -1,11 +1,28 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import Context from '../../context'
 import './NavBar.css'
 
 export default class NavBar extends Component {
+  static contextType = Context
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     loggedIn: false,
+  //   }
+  // }
+  // componentDidUpdate() {
+  //   this.setState(ps => {
+  //     return {loggedIn : !ps}})
+  //     console.log(this.state)
+  //   }
+    
+  
+  
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
+        this.context.handleLog()
       }
     
       renderLogoutLink() {

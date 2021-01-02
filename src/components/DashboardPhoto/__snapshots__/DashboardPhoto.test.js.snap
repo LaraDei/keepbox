@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a .Album by default 1`] = `
+<div
+  className="DashboardPhoto"
+>
+  <div
+    className="photo-large"
+  >
+    <img />
+  </div>
+  <div
+    className="photo-details"
+  >
+    <p />
+    <p />
+    <p />
+  </div>
+</div>
+`;

@@ -1,14 +1,12 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    "albums":[
+    albums :[
         {
         id: 1,
         title: "Jack's Creations",
-        author: "Jack Smith"
         },{
         id: 2,
         title: "Jill's Creations",
-        author: "Jill Smith"
          }
     ],
     "photos": [

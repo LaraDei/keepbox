@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 const AlbumListContext = React.createContext({
     albums: [],
     photos: [],
+    isLoggedIn: false,
     setAlbumList: () => {},
     deletePhoto: () => {},
     addPhoto: () => {},
@@ -46,6 +47,13 @@ export class AlbumListProvider extends Component {
         },
     )
   }
+  handleLog = e => {
+    this.setState(prevState => {
+      return {
+        isLoggedIn: !prevState.isLoggedIn
+      }
+  })
+  }
 
   render() {
     const value = {
@@ -56,6 +64,7 @@ export class AlbumListProvider extends Component {
       addPhoto: this.addPhoto,
       addAlbum: this.addAlbum,
       deletePhoto: this.deletePhoto,
+      handleLog: this.handleLog
     }
     return (
       <AlbumListContext.Provider value={value}>

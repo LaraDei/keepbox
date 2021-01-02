@@ -13,26 +13,22 @@ export default class Album extends Component{
       
     static contextType = Context
     render(){
-        const { id } = this.props.match.params
+        const { albumId } = this.props.match.params
         const { photos=[] } = this.context
         const{ albums=[] } = this.context
-        const album = findAlbum(albums, id)
-        const photosForAlbum = getPhotosForAlbum(photos, id)
+        const selectedAlbum = findAlbum(albums, albumId)
+        const photosForAlbum = getPhotosForAlbum(photos, albumId)
         return(
             <div className='Album'>
-                <h2>{album.title}</h2>
+                <h2>{selectedAlbum.title}</h2>
                 <div className='Album-photos'>
                         {photosForAlbum.map(photo =>
                             <div key={photo.id}>
                             <Photo
                                 id={photo.id}
                                 caption={photo.caption}
-                                modified={photo.date_modified}
-                                author={photo.author}
                                 age={photo.age}
-                                thumbnail={photo.thumbnail}
-                                url={photo.location}
-                                createdDate={photo.date_created}
+                                url={photo.file_location}
                             />
                             </div>
                         )}

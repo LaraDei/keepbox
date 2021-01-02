@@ -33,6 +33,7 @@ export default class SignIn extends Component{
         const { history } = this.props
         const destination = '/user'
         history.push(destination)
+        TokenService.hasAuthToken()
     }
 
     static contextType = Context

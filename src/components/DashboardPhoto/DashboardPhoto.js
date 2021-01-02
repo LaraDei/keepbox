@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Photo from '../Photo/Photo'
 import Context from '../../context'
 import {findPhoto} from '../../helpers'
 import './DashboardPhoto.css'
@@ -17,21 +16,17 @@ export default class DashboardPhoto extends Component{
         const { photos=[] } = this.context
         const { photoId } = this.props.match.params
         const photo = findPhoto(photos, photoId) || { content: '' }
+        console.log(photo)
         return(
             <div className='DashboardPhoto'>
                 <div className='photo-large'>
-                    <img  src={photo.location} alt={photo.caption}/>
+                    <img  src={photo.file_location} alt={photo.caption}/>
                 </div>
-                <Photo
-                    id={photo.id}
-                    caption={photo.caption}
-                    modified={photo.date_modified}
-                    author={photo.author}
-                    age={photo.age}
-                    thumbnail={photo.thumbnail}
-                    url={photo.location}
-                    createdDate={photo.date_created}
-                />
+                <div className='photo-details'>
+                    <p>{photo.caption}</p>
+                    <p>{photo.summary}</p>
+                    <p>{photo.date_created}</p>
+                </div>
             </div>
         )
     }

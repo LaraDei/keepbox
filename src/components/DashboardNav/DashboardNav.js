@@ -11,7 +11,6 @@ export default class DashboardNav extends Component{
     }
     render(){
         const { albums=[] } = this.context
-        console.log(this.context)
         return(
             <div className='DashboardNav' id='DashboardNav'>
                 <button className="closebtn" onClick={e => this.closeNav()}>&times;</button>

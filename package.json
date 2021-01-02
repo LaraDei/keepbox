@@ -7,8 +7,6 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "date-fns": "^2.16.1",
-    "enzyme": "^3.11.0",
-    "enzyme-to-json": "^3.6.1",
     "react": "^16.14.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -22,7 +20,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -40,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1"
   }
 }
