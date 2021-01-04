@@ -16,7 +16,6 @@ export default class DashboardPhoto extends Component{
         const { photos=[] } = this.context
         const { photoId } = this.props.match.params
         const photo = findPhoto(photos, photoId) || { content: '' }
-        console.log(photo)
         return(
             <div className='DashboardPhoto'>
                 <div className='photo-large'>

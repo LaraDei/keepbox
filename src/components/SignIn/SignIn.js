@@ -30,8 +30,6 @@ export default class SignIn extends Component{
     handleSubmitJwtAuth = e => {
         e.preventDefault()
         this.setState({ error: null })
-        console.log("hi")
-        console.log(e.target)
         const { email, password } = e.target
         
         AuthApiService.postLogin({
@@ -41,8 +39,6 @@ export default class SignIn extends Component{
             .then(res => {
                email.value = ''
                password.value = ''
-               console.log(res.authToken)
-               console.log(this.props)
                TokenService.saveAuthToken(res.authToken)
                this.handleLoginSuccess()
             })

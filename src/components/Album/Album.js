@@ -18,6 +18,7 @@ export default class Album extends Component{
         const{ albums=[] } = this.context
         const selectedAlbum = findAlbum(albums, albumId)
         const photosForAlbum = getPhotosForAlbum(photos, albumId)
+        console.log(photos)
         return(
             <div className='Album'>
                 <h2>{selectedAlbum.title}</h2>

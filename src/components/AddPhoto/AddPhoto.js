@@ -1,22 +1,20 @@
-import React, {Component, useState} from 'react'
+import React, {Component} from 'react'
 import Context from '../../context'
 import SimpleFileUpload from 'react-simple-file-upload'
 import AlbumApiService from '../../services/album-api-service'
+import TokenService from '../../services/token-service'
 //import config from '../../config'
 import './AddPhoto.css'
 
-function PhotoDrop (){
-    const [file, setFile] = useState();
-    console.log(file)
-    return(
-        <div>
-        <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254c60ff6e" onSuccess ={setFile}/>
-        <p> Uploaded: {file}</p>
-        </div>
-    )
 
-}
 export default class AddPhoto extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            file_location: ''
+        }
+    }
+
     static defaultProps ={
         history: {
             push: () => {}
@@ -27,13 +25,11 @@ export default class AddPhoto extends Component{
 
    handlePhotoSubmit= e => {
     e.preventDefault()
-    console.log(e.target)
-    const {caption, summary, file_location, date_created, album_id, age } = e.target
-    console.log(caption)
+    const {caption, summary, date_created, album_id, age } = e.target
     AlbumApiService.postPhoto({
         caption: caption.value, 
         summary: summary.value,
-        file_location: file_location.value,
+        file_location: this.state.file_location,
         date_created: date_created.value,
         album_id: album_id.value,
         age: age.value
@@ -49,7 +45,7 @@ export default class AddPhoto extends Component{
   }
   
   handleFile = url => {
-      console.log(url)
+      this.setState({ file_location: url })
   }
 
 
@@ -90,9 +86,9 @@ export default class AddPhoto extends Component{
                     </div>
                     <div>
                         <p>* Upload Photo: </p>
-                        <label htmlFor="photo-url">* Photo URL: </label>
-                        <textarea name="file_location" ></textarea>
-                        <PhotoDrop/>
+                        <div>{TokenService.hasAuthToken()
+                    ? <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254c60ff6e" onSuccess ={this.handleFile}/>: 'Must be logged in to uplaod photos' }</div>
+                        
                     </div>
                     <div>
                         <button type="submit">Submit</button>

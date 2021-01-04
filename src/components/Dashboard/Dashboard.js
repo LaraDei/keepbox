@@ -7,15 +7,18 @@ import DashboardNav from '../DashboardNav/DashboardNav'
 import DashboardMain from '../DashboardMain/DashboardMain'
 import context from '../../context'
 import AlbumApiService from '../../services/album-api-service'
+import TokenService from '../../services/token-service'
 import './Dashboard.css'
 import DashboardPhoto from '../DashboardPhoto/DashboardPhoto'
+import Store from  '../../Store'
 
 export default class Dashboard extends Component{
 static contextType = context
       
     componentDidMount() {
-      const albumCall =  AlbumApiService.getAlbums()
-      const photoCall = AlbumApiService.getPhotos()
+      const albumCall =  TokenService.hasAuthToken() ? AlbumApiService.getAlbums() : Store.albums
+      const photoCall = TokenService.hasAuthToken() ? AlbumApiService.getPhotos() : Store.photos
+      console.log(photoCall)
        Promise.all([albumCall, photoCall]) 
           .then(([albums, photos]) => { 
             this.context.setAlbumList(albums)

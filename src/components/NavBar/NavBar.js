@@ -5,20 +5,7 @@ import Context from '../../context'
 import './NavBar.css'
 
 export default class NavBar extends Component {
-  static contextType = Context
-  // constructor(props){
-  //   super(props)
-  //   this.state = {
-  //     loggedIn: false,
-  //   }
-  // }
-  // componentDidUpdate() {
-  //   this.setState(ps => {
-  //     return {loggedIn : !ps}})
-  //     console.log(this.state)
-  //   }
-    
-  
+  static contextType = Context  
   
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
@@ -47,6 +34,29 @@ export default class NavBar extends Component {
           </div>
         )
       }
+
+      renderUserLink() {
+        return (
+          <div className='Header__dashboard-logged-in'>
+            <Link
+              to='/user'>
+              Dasboard
+            </Link>
+          </div>
+        )
+      }
+
+      renderDemoLink() {
+        return (
+          <div className='Header__dashboard-demo'>
+            <Link
+              to='/user'>
+              Demo
+            </Link>
+          </div>
+        )
+      }
+
    handleNav() {
         var x = document.getElementById("menu");
         if (x.className === "menu") {
@@ -62,14 +72,15 @@ export default class NavBar extends Component {
             <ul id='menu' className='menu'>
                 <li><Link to={'/'}>Home</Link></li>
                 <li>{TokenService.hasAuthToken()
-            ? this.renderLogoutLink()
-            : this.renderLoginLink()}</li>
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()}</li>
                 <li><Link to={'/sign-up'}>Create Account</Link></li>
-                <li><Link to={'/user'}>Dasboard</Link></li>
+                <li>{TokenService.hasAuthToken()
+                    ? this.renderUserLink()
+                    : this.renderDemoLink()} </li>
             </ul>
             <button className='icon' onClick={e => this.handleNav()}>&#9776;</button>
             </div>
         )
     }
 }
-
