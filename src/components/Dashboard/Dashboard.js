@@ -13,16 +13,18 @@ import DashboardPhoto from '../DashboardPhoto/DashboardPhoto'
 import Store from  '../../Store'
 
 export default class Dashboard extends Component{
-static contextType = context
-      
+static contextType = context  
+
+
     componentDidMount() {
       const albumCall =  TokenService.hasAuthToken() ? AlbumApiService.getAlbums() : Store.albums
       const photoCall = TokenService.hasAuthToken() ? AlbumApiService.getPhotos() : Store.photos
-      console.log(photoCall)
        Promise.all([albumCall, photoCall]) 
           .then(([albums, photos]) => { 
             this.context.setAlbumList(albums)
             this.context.setPhotoList(photos)
+            // localStorage.setItem("albums", JSON.stringify(...albums))
+            // localStorage.setItem("photos", JSON.stringify(...photos))
           })
         
         .catch(error => {
@@ -56,7 +58,7 @@ static contextType = context
                 <Route
                     key={path}
                     path={path}
-                    component={Album}
+                    component={Album }
                 />
             ))}
             <Route exact path='/user' component={DashboardMain}/>

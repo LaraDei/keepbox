@@ -40,7 +40,7 @@ export default class NavBar extends Component {
           <div className='Header__dashboard-logged-in'>
             <Link
               to='/user'>
-              Dasboard
+              Dashboard
             </Link>
           </div>
         )

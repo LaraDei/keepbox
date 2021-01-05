@@ -49,7 +49,7 @@ export default class SignUp extends React.Component{
 
     handleRegistrationSuccess = user => {
         const { history } = this.props
-        history.push('/login')
+        history.push('/sign-in')
       }
 
     handleSubmit = e => {
@@ -94,7 +94,7 @@ export default class SignUp extends React.Component{
                     <div>
                         <label htmlFor="email">Email: </label>
                         <input type="text" name='email' id='email' placeholder='email*' autoComplete='email'
-                             
+                                onChange={e => this.updateValue(e.target.value, e.target.id)}
                                required/>
                         {emailError && <p className='red'>{emailError}</p>}
                     </div>

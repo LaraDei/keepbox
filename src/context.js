@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const AlbumListContext = React.createContext({
+const Context = React.createContext({
     albums: [],
     photos: [],
     isLoggedIn: false,
@@ -8,9 +8,10 @@ const AlbumListContext = React.createContext({
     deletePhoto: () => {},
     addPhoto: () => {},
     addAlbum: () => {},
+    handleLog: () => {},
 })
 
-export default AlbumListContext
+export default Context
 
 export class AlbumListProvider extends Component {
   state = {
@@ -65,12 +66,12 @@ export class AlbumListProvider extends Component {
       addPhoto: this.addPhoto,
       addAlbum: this.addAlbum,
       deletePhoto: this.deletePhoto,
-      handleLog: this.handleLog
+      handleLog: this.handleLog,
     }
     return (
-      <AlbumListContext.Provider value={value}>
+      <Context.Provider value={value}>
         {this.props.children}
-      </AlbumListContext.Provider>
+      </Context.Provider>
     )
   }
 }
