@@ -6,12 +6,6 @@ import './Photo.css'
 export default class Photo extends Component{
     static contextType = Context
     
-    static defaultProps ={
-        onDeletePhoto: () => {},
-        history: {
-            push: () => {}
-          },
-    }
 
     render(){
         const { caption, id, url } = this.props

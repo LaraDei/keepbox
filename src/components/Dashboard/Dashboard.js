@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
-import Album from '../Album/Album'
+import Album from '../DashboardAlbum/DashboardAlbum'
 import AddAlbum from '../AddAlbum/AddAlbum'
 import AddPhoto from '../AddPhoto/AddPhoto'
 import DashboardNav from '../DashboardNav/DashboardNav'
