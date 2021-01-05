@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Context from '../../context'
+import TokenService from '../../services/token-service'
 
 
 export default class DashboardMain extends Component{
@@ -9,10 +10,11 @@ export default class DashboardMain extends Component{
             <div className='DashboardMain'>
 <               header className='DashboardMain-header'>
                     <h1>
-                        User's Dashboard 
+                    {TokenService.hasAuthToken() 
+                      ?  'Your Dashboard'
+                      : 'Demo Dashboard'}
                     </h1>
-                    <p>Welcome to your KeepBox account</p>    
-                    <p>Please create an album in order to upload photos.</p> 
+                    <p>Welcome to KeepBox </p> 
                 </header>
             </div>
         )

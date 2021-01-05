@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# KeepBox
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please see further instruction on React below:
+
+# How to Use KeepBox
+
+KeepBox helps you keep track of your child's artistic and creative milestones and functions as a photo album.
+
+You can see the general layout by clicking on the demo link on the navigation bar. There you will see what the user's dashboard lookslike with some albums and photo exmaples. You will not be able to add albums or photos from the demo dashboard.
+
+You can create an account and sign in to access all of the user functions. 
+
+
+
+
 
 ## Available Scripts
 

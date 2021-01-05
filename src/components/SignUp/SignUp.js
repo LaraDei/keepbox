@@ -20,7 +20,6 @@ export default class SignUp extends React.Component{
                 touched: false
             },
             error: null,
-            emailError: null
         }
     }
 
@@ -32,20 +31,11 @@ export default class SignUp extends React.Component{
 
     static contextType = Context
 
-
-
     updateValue= (value, key) => {
+        this.setState({ emailError: null })
         this.setState({ [key]: {value: value, touched: true}})
-        this.validateEmail()
     }
 
-    validateEmail = ()=> {
-        const email = this.state.email.value.trim()
-        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i)
-        if (!pattern.test(email)) {
-            this.setState({ emailError: "Please enter a valid email" })
-        }
-    }
 
     handleRegistrationSuccess = user => {
         const { history } = this.props
@@ -74,7 +64,6 @@ export default class SignUp extends React.Component{
     }
 
     render(){
-        const { emailError } = this.state
         const { error } = this.state
         return(
             <div className='SignUp'>
@@ -96,7 +85,6 @@ export default class SignUp extends React.Component{
                         <input type="text" name='email' id='email' placeholder='email*' autoComplete='email'
                                 onChange={e => this.updateValue(e.target.value, e.target.id)}
                                required/>
-                        {emailError && <p className='red'>{emailError}</p>}
                     </div>
                     <div>
                         <label htmlFor="password">Password: </label>
