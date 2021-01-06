@@ -1,0 +1,25 @@
+.album-list-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.album-link-main{
+    margin: 25px;
+    padding: 16px 8px;
+    background-color: rgb(31, 29, 29);
+    color: white;
+    border-radius: 80px;
+    width: 120px;
+    height: 120px;
+    display: block;
+    border: 0;
+   
+}
+.album-link-main a{
+    color: white;
+    text-decoration: none;
+}
+@media only screen and (min-width: 600px)  {
+    .album-list-main {flex-direction: row;}
+  }

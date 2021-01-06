@@ -45,10 +45,7 @@ export default class AddPhoto extends Component{
     static contextType = Context
 
     updateValue= (value, key) => {
-        console.log(value)
-        console.log(key)
         this.setState({ [key]: {value: value}})
-        console.log(this.state)
     }
 
     validateCaption= () => {

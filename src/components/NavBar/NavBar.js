@@ -77,10 +77,12 @@ export default class NavBar extends Component {
                 <li>{TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}</li>
-                <li><Link to={'/sign-up'}>Create Account</Link></li>
                 <li>{TokenService.hasAuthToken()
                     ? this.renderUserLink()
                     : this.renderDemoLink()} </li>
+                <li>{TokenService.hasAuthToken()
+                    ? null
+                    : <Link to={'/sign-up'}>Create Account</Link>}</li>
             </ul>
             
             </div>

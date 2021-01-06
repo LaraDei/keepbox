@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { getPhotosForAlbum, findAlbum } from '../../helpers'
 import Context from '../../context'
 import Photo from '../Photo/Photo'
+import Slider from '../Slider/Slider'
 
 
 export default class DashboardAlbum extends Component{
@@ -19,22 +20,19 @@ export default class DashboardAlbum extends Component{
         const{ albums=[] } = this.context
         const selectedAlbum = findAlbum(albums, albumId) || { content: '' }
         const photosForAlbum = getPhotosForAlbum(photos, albumId) || { content: '' }
+        const albumLength = photosForAlbum.length || { content: '' }
         return (
             <div className='DashboardAlbum'>
                 <h2>{selectedAlbum.title}</h2>
                 <div className='Album-photos'>
-                        {photosForAlbum.map(photo =>
-                            <div key={photo.id}>
-                            <Photo
-                                id={photo.id}
-                                caption={photo.caption}
-                                age={photo.age}
-                                url={photo.file_location}
-                            />
-                            </div>
-                        )}
+                    <Slider
+                        length={albumLength}
+                        photos={photosForAlbum}
+                        album={selectedAlbum}
+                    />
                 </div>
             </div>
         )
     }
 }
+

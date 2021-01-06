@@ -7,8 +7,12 @@ export default class DashboardPhoto extends Component{
     static defaultProps = {
         match: {
           params: {}
-        }
+        },
+        history: {
+            goBack: () => { }
+          },
       }
+      
 
     static contextType = Context
 
@@ -18,6 +22,7 @@ export default class DashboardPhoto extends Component{
         const photo = findPhoto(photos, photoId) || { content: '' }
         return(
             <div className='DashboardPhoto'>
+                <button className="backbtn" onClick={() => this.props.history.goBack()}>Back</button>
                 <div className='photo-large'>
                     <img  src={photo.file_location} alt={photo.caption}/>
                 </div>

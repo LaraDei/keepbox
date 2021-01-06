@@ -1,6 +1,7 @@
 
 .dashboard-main{
     overflow: auto;
+    height: 100%;
 }
 .Dashboard-link{
     position: relative;

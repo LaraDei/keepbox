@@ -1,0 +1,14 @@
+.backbtn{
+    background-color: #cacaca;
+    border-radius: 30px;
+    border: 0;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    height: 60px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+    margin-bottom: 5px;
+}
