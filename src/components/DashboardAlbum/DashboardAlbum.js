@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { getPhotosForAlbum, findAlbum } from '../../helpers'
 import Context from '../../context'
-import Photo from '../Photo/Photo'
 import Slider from '../Slider/Slider'
 
 
