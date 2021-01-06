@@ -49,7 +49,7 @@ export default class App extends Component {
         <main className="app-main">
           {this.renderMainRoutes()}
         </main>
-        <footer>Keepbox</footer>
+        <footer className="logo">Keepbox</footer>
       </div>
 
     )

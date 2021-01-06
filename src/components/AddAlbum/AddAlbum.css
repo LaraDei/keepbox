@@ -1,0 +1,14 @@
+.simpleBtn{
+    margin-top: 5px;
+    width: 100px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #13171b;
+    border: solid 1px transparent;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.simpleBtn:hover {
+    background-color: rgb(63, 60, 60);
+}

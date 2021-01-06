@@ -11,6 +11,8 @@ import TokenService from '../../services/token-service'
 import './Dashboard.css'
 import DashboardPhoto from '../DashboardPhoto/DashboardPhoto'
 import Store from  '../../Store'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from'@fortawesome/free-solid-svg-icons'
 
 export default class Dashboard extends Component{
 static contextType = context  
@@ -76,7 +78,7 @@ static contextType = context
                 {this.renderNavDashRoutes()}
                 </div>
                 <div className="dashboard-main">
-                <button className='Dashboard-link' onClick={e => this.openNav()} >&#9776; open</button>  
+                <button className='Dashboard-link NavCircleButton' onClick={e => this.openNav()} ><FontAwesomeIcon icon={faBars} /></button>  
                     {this.renderMainDashRoutes()}
                 </div>
             </div>

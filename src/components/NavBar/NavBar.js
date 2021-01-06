@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import Context from '../../context'
 import './NavBar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from'@fortawesome/free-solid-svg-icons'
 
 export default class NavBar extends Component {
   static contextType = Context  
@@ -69,8 +71,9 @@ export default class NavBar extends Component {
       render() {
         return(
             <div className="nav-bar">
+            <button className='icon' onClick={e => this.handleNav()}><FontAwesomeIcon icon={faBars} /></button>
             <ul id='menu' className='menu'>
-                <li><Link to={'/'}>Home</Link></li>
+                <li className="logo"><Link to={'/'}>keepbox</Link></li>
                 <li>{TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}</li>
@@ -79,7 +82,7 @@ export default class NavBar extends Component {
                     ? this.renderUserLink()
                     : this.renderDemoLink()} </li>
             </ul>
-            <button className='icon' onClick={e => this.handleNav()}>&#9776;</button>
+            
             </div>
         )
     }

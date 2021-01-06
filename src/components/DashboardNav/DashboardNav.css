@@ -1,4 +1,26 @@
-.DashboardNav{
+.NavCircleButton {
+    background-color: #cacaca;
+    border-radius: 30px;
+    border: 0;
+    color: black;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 60px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 60px;
+  }
+  
+  a.NavCircleButton {
+    padding: 16px 8px 8px;
+  }
+  
+  .NavCircleButton:hover {
+    cursor: pointer;
+  }
+  .DashboardNav{
     height: 100%;
     width: 0;
     position: fixed;
@@ -10,12 +32,12 @@
     transition: 0.5s;
     padding-top: 60px;
 }
-
 .DashboardNav-list{
     padding: 0;
     list-style-type: none;
     overflow: hidden;
-    margin: 130px 0 0;
+    margin-top: 40%;
+    margin-left: 10%;
     max-width: 180px;
     padding: 8px 16px;
     text-decoration: none;
@@ -38,9 +60,42 @@
 .DashboardNav-album-link.active {
     background-color: rgb(77, 74, 74);
   }
-
-.closebtn {
-    margin-left: 80%;
+.dasNavAddBtn a{
+  text-decoration: none;
+  color: black;
+  
+}
+.dasNavAddBtn{
+  margin-bottom: 10px;
+}
+.DashboardNav-button-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40%;
+}
+.closeContainer {
+    float: right;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.closebtn{
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+}
+.close{
+  font-family: Helvetica, Arial, sans-serif; 
+  font-size: .4em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all .3s ease-in;
+  opacity: 0;
+}
+.closeContainer:hover label{
+  opacity: 1;
 }
 
   @media screen and (max-height: 450px) {

@@ -3,7 +3,8 @@ import Context from '../../context'
 import SimpleFileUpload from 'react-simple-file-upload'
 import AlbumApiService from '../../services/album-api-service'
 import TokenService from '../../services/token-service'
-//import config from '../../config'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage, faRedo } from'@fortawesome/free-solid-svg-icons'
 import './AddPhoto.css'
 
 
@@ -120,16 +121,16 @@ export default class AddPhoto extends Component{
                         <label htmlFor="child-age">Child's Age: </label>
                         <input type="number" name="age" id="child-age" placeholder="4" onChange={e => this.updateValue(e.target.value, e.target.name)}/>
                     </div>
-                    <div>
-                        <button type="submit">Upload Photo</button>
-                        <button type="reset">Reset</button>
+                    <div className='addphoto-btn-wrapper'>
+                        <button className='submitBtn' type="submit">Select <FontAwesomeIcon icon={faImage} /></button>
+                        <button className='resetBtn' type="reset">Reset{' '}<FontAwesomeIcon icon={faRedo} /></button>
                     </div>
 
                         <div>{!TokenService.hasAuthToken()
-                            ? 'Must be logged in to upload photos'
+                            ? <p>* You must be logged in to upload photos</p>
                             : this.state.formTouched ?
                             <SimpleFileUpload apiKey="3bf7e79dde4685b3ab2827254c60ff6e" onSuccess ={this.handlePhotoSubmit}/>
-                            :'Please fill out required photo information first' }
+                            :<p> * Please fill out required photo information first</p> }
                         </div>
                 </form>
             </div>

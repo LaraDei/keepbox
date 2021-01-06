@@ -5,10 +5,15 @@
   background-color: #333;
 }
 
+.logo{
+  font-family: "Lobster";
+  font-size: large;
+}
+
 .menu li{
   float: left;
   display: block;
-  padding: 14px 16px;
+  padding: 0 16px;
   text-align: center;
 
 }
@@ -21,14 +26,17 @@
 .menu :not(:first-child) {
   float: right;
   display: none;
+  
 }
 
 .icon {
   float: right;
-  display: block;
-  margin: 10%;
-  background-color: rgb(95, 93, 93);
+  margin: 20px 10px 0 0;
+  padding:10px;
+  background-color: rgb(77, 75, 75);
   color: rgb(255, 253, 253);
+  border: 0;
+  border-radius: 5px;
 }
 
   .nav-bar li a:hover {
@@ -54,7 +62,7 @@
       display: block;
       color: #f2f2f2;
       text-align: center;
-      padding: 14px 16px;
+      padding: 10x 16px;
       text-decoration: none;
       font-size: 17px;
     }
@@ -64,6 +72,7 @@
     .menu :not(:first-child) {
       float: right;
       display: block;
+      padding-top: 15px;
     }
     
   }

@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import Context from '../../context'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
+import { faPlus } from'@fortawesome/free-solid-svg-icons'
+
 import './DashboardNav.css'
 
 export default class DashboardNav extends Component{
@@ -13,7 +17,10 @@ export default class DashboardNav extends Component{
         const { albums=[] } = this.context
         return(
             <div className='DashboardNav' id='DashboardNav'>
-                <button className="closebtn" onClick={e => this.closeNav()}>&times;</button>
+                <div className="closeContainer">
+                    <button className="closebtn" onClick={e => this.closeNav()}> <FontAwesomeIcon icon={faTimesCircle} /></button>
+                    <label className="close">close</label>
+                </div>
                 <ul className='DashboardNav-list'>
                     {albums.map(album =>
                         <li key={album.id}>
@@ -27,16 +34,16 @@ export default class DashboardNav extends Component{
                     )}
                 </ul>
                 <div className='DashboardNav-button-wrapper'>
-                    <button>
+                    <button className="NavCircleButton dasNavAddBtn">
                         <Link to={'/user/add-album'}
                         >
-                        Add Album
+                        <FontAwesomeIcon icon={faPlus} /> Album
                         </Link>
                     </button>
-                    <button>
+                    <button className="NavCircleButton dasNavAddBtn">
                         <Link to={'/user/add-photo'}
                         >
-                        Add Photo
+                        <FontAwesomeIcon icon={faPlus} /> Photo
                         </Link>
                     </button>
                 </div>

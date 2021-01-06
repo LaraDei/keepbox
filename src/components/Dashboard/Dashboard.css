@@ -1,15 +1,13 @@
 
 .dashboard-main{
-    margin: 40% 0;
     overflow: auto;
 }
 .Dashboard-link{
     position: relative;
-    margin-bottom: 5%;
-    float: left;
+    margin: 10px 0 0 10px;
     cursor:pointer;
 }
 
 @media only screen and (min-width: 600px)  {
-    .dashboard-main {margin-top: 15%;}
+    .dashboard-main {margin-top: 2%;}
   }

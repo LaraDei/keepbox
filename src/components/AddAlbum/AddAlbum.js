@@ -32,7 +32,7 @@ export default class AddAlbum extends Component{
                     <label htmlFor='Album Title'>Album Title: </label>
                     <input placeholder='Album Title*' type="text" name='title' id='title' required />
                     </div>
-                    <button type='submit'>Save</button>
+                    <button type='submit' className="simpleBtn">Save</button>
                 </form>
             </div>
         )
