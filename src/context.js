@@ -28,8 +28,14 @@ export class AlbumListProvider extends Component {
   }
 
   deletePhoto = photoId => {
+    console.log(photoId)
+    console.log(this.state.photos)
+    console.log(this.state.photos.map(photo => {return photo.id}))
+    
+    const newList = this.state.photos.filter(photo => photo.id != photoId)
+    console.log(newList)
     this.setState({
-      photos: this.state.photos.filter(photo => photo.id !== photoId)
+      photos: newList
     },)
   }
 

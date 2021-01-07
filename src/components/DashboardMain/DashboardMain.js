@@ -8,7 +8,7 @@ import './DashboardMain.css'
 export default class DashboardMain extends Component{
     static contextType = Context
     render(){
-        const { albums=[] } = this.context
+        const { albums=[] } = this.context || { content: '' }
         return(
             <div className='DashboardMain'>
 <               div className='DashboardMain-header'>
