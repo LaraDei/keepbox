@@ -24,14 +24,13 @@ static contextType = context
           .then(([albums, photos]) => { 
             this.context.setAlbumList(albums)
             this.context.setPhotoList(photos)
-            // localStorage.setItem("albums", JSON.stringify(...albums))
-            // localStorage.setItem("photos", JSON.stringify(...photos))
           })
         
         .catch(error => {
           console.error({error});
         })
   }   
+  
 
   openNav(){
     document.getElementById("DashboardNav").style.width = "250px";
