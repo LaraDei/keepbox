@@ -48,30 +48,32 @@ export default class NavBar extends Component {
         )
       }
 
-      renderDemoLink() {
-        return (
-          <div className='Header__dashboard-demo'>
-            <Link
-              to='/user'>
-              Demo
-            </Link>
-          </div>
-        )
-      }
+    renderDemoLink() {
+      return (
+        <div className='Header__dashboard-demo'>
+          <Link
+            to='/user'>
+            Demo
+          </Link>
+        </div>
+      )
+    }
 
    handleNav() {
-        var x = document.getElementById("menu");
-        if (x.className === "menu") {
-            x.className += " responsive";
-          } else {
-            x.className = "menu";
-          }
+      var x = document.getElementById("menu");
+      if (x.className === "menu") {
+          x.className += " responsive";
+      } else {
+          x.className = "menu";
       }
+    }
 
       render() {
         return(
             <div className="nav-bar">
-            <button className='icon' onClick={e => this.handleNav()}><FontAwesomeIcon icon={faBars} /></button>
+              <div className='icon-wrapper'>
+            <button className='icon' onClick={e => this.handleNav()}><FontAwesomeIcon icon={faBars}/></button>
+            </div>
             <ul id='menu' className='menu'>
                 <li className="logo"><Link to={'/'}>keepbox</Link></li>
                 <li>{TokenService.hasAuthToken()

@@ -5,8 +5,7 @@ export default class LandingPage extends Component{
     render(){
         return(
             <div className='LandingPage'>
-            
-                 <header className='app-header'>
+                <header className='app-header'>
                     <h1 className="logo">keepbox</h1>
                     <h3>digital storage for your keepsakes</h3>   
                 </header>

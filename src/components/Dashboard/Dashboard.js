@@ -17,10 +17,9 @@ import { faBars } from'@fortawesome/free-solid-svg-icons'
 export default class Dashboard extends Component{
 static contextType = context  
 
-    
-    componentDidMount() {
-      const albumCall =  TokenService.hasAuthToken() ? AlbumApiService.getAlbums() : Store.albums
-      const photoCall = TokenService.hasAuthToken() ? AlbumApiService.getPhotos() : Store.photos
+  componentDidMount() {
+    const albumCall =  TokenService.hasAuthToken() ? AlbumApiService.getAlbums() : Store.albums
+    const photoCall = TokenService.hasAuthToken() ? AlbumApiService.getPhotos() : Store.photos
        Promise.all([albumCall, photoCall]) 
           .then(([albums, photos]) => { 
             this.context.setAlbumList(albums)
@@ -32,25 +31,25 @@ static contextType = context
         .catch(error => {
           console.error({error});
         })
-    }   
+  }   
 
-    openNav(){
-        document.getElementById("DashboardNav").style.width = "250px";
-    }
+  openNav(){
+    document.getElementById("DashboardNav").style.width = "250px";
+  }
 
-    renderNavDashRoutes() {
-        return (
-          <>
-            {['/user', '/user/album/:albumId', '/user/photo/:photoId', '/user/add-album', '/user/add-photo'  ].map(path => (
-                <Route
-                exact
-                    key={path}
-                    path={path}
-                    component={DashboardNav}
-                />
-            ))}
-          </>
-        )
+  renderNavDashRoutes() {
+     return (
+        <>
+          {['/user', '/user/album/:albumId', '/user/photo/:photoId', '/user/add-album', '/user/add-photo'  ].map(path => (
+               <Route
+              exact
+                  key={path}
+                  path={path}
+                  component={DashboardNav}
+              />
+          ))}
+        </>
+      )
     }
 
     renderMainDashRoutes(){
@@ -72,16 +71,16 @@ static contextType = context
     }
 
     render(){
-        return(
-            <div className='Dashboard'>
-                <div className='Dashboard-nav'>
+      return(
+          <div className='Dashboard'>
+              <div className='Dashboard-nav'>
                 {this.renderNavDashRoutes()}
-                </div>
-                <div className="dashboard-main">
+              </div>
+              <div className="dashboard-main">
                 <button className='Dashboard-link NavCircleButton' onClick={e => this.openNav()} ><FontAwesomeIcon icon={faBars} /></button>  
-                    {this.renderMainDashRoutes()}
-                </div>
-            </div>
-        )
+                  {this.renderMainDashRoutes()}
+              </div>
+          </div>
+      )
     }
 }

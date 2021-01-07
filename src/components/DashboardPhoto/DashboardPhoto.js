@@ -18,14 +18,13 @@ export default class DashboardPhoto extends Component{
       }
 
     static contextType = Context
-   componentDidUpdate(){}
+
     handlePhotoDelete= e => {
         e.preventDefault()
         const {photoId} = this.props.match.params
         AlbumApiService.deletePhoto({id: photoId})
         .then(res => {
           this.context.deletePhoto(photoId)
-          this.componentDidUpdate()
           this.props.history.goBack()
         })
         .catch(error => {

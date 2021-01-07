@@ -1,18 +1,38 @@
 # KeepBox
+[keepbox](https://keepbox.vercel.app/ "keepbox")
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please see further instruction on React below:
 
 # How to Use KeepBox
+![Landing Page](/src/images/landingPage.JPG)
 
 KeepBox helps you keep track of your child's artistic and creative milestones and functions as a photo album.
 
-You can see the general layout by clicking on the demo link on the navigation bar. There you will see what the user's dashboard lookslike with some albums and photo exmaples. You will not be able to add albums or photos from the demo dashboard.
+You can see the general layout by clicking on the demo link on the navigation bar. 
+![Demo](/src/images/demo.JPG)
+There you will see what the user's dashboard looks like with some albums and photo examples. You will not be able to add albums or photos from the demo dashboard.
 
 You can create an account and sign in to access all of the user functions. 
+![Create account](/src/images/signup.JPG)
+![Sign In](/src/images/signin.JPG)
 
+This app is mobile friendly!
+![Mobile Album](/src/images/mobilealbum.JPG)
+![Mobile Navigation](/src/images/mobilenav.JPG)
 
+# API Documentation
+[Keepbox API source code](https://github.com/LaraDei/keepbox-api "Keepbox API source code")
 
-
+# Technology Used
+-JS
+-REACT
+-JSX
+-CSS
+-HTML
+-AJAX
+-[Simple-File-Upload](https://www.simplefileupload.com/ "Simple-File-Upload")
+-JWT
 
 ## Available Scripts
 

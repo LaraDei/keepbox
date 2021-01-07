@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faRedo } from'@fortawesome/free-solid-svg-icons'
 import './AddPhoto.css'
 
-
 export default class AddPhoto extends Component{
     constructor(props){
         super(props)
@@ -53,7 +52,7 @@ export default class AddPhoto extends Component{
         if (caption.length === 0) {
             this.setState({ [caption]: {error : "Please enter a photo caption" }})
         }
-      }
+    }
 
     handlePhotoSubmit= url => {
         AlbumApiService.postPhoto({
@@ -135,14 +134,3 @@ export default class AddPhoto extends Component{
     }
 }
 
-<form className='signin-form'>
-                    <div>
-                    <label htmlFor="user-name">User name: </label>
-                    <input placeholder='User Name' type="text" name='user-name' id='user-name' />
-                    </div>
-                    <div>
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" name='password' id='password' />
-                    </div>
-                    <button type='submit'>Sign Up</button>
-                </form>

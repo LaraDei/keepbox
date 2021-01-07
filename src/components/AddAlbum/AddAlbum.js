@@ -29,8 +29,8 @@ export default class AddAlbum extends Component{
                 <p>{TokenService.hasAuthToken() ? null : 'Must be logged in to upload photos'}</p>
                 <form className='AddAlbum-form' onSubmit={this.handleAlbumSubmit}>
                     <div>
-                    <label htmlFor='Album Title'>Album Title: </label>
-                    <input placeholder='Album Title*' type="text" name='title' id='title' required />
+                      <label htmlFor='Album Title'>Album Title: </label>
+                      <input placeholder='Album Title*' type="text" name='title' id='title' required />
                     </div>
                     <button type='submit' className="simpleBtn">Save</button>
                 </form>
