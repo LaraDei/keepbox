@@ -116,7 +116,7 @@ export default class AddPhoto extends Component{
                     </div>
                     <div>
                         <label htmlFor="child-age">Child's Age: </label>
-                        <input type="number" name="age" id="child-age" placeholder="4" onChange={e => this.updateValue(e.target.value, e.target.name)}/>
+                        <input type="number" name="age" id="child-age" placeholder="4" min="0" onChange={e => this.updateValue(e.target.value, e.target.name)}/>
                     </div>
                     <div className='addphoto-btn-wrapper'>
                         <button className='submitBtn' type="submit">Select <FontAwesomeIcon icon={faImage} /></button>
