@@ -28,6 +28,7 @@ export class AlbumListProvider extends Component {
   }
 
   deletePhoto = photoId => {
+    // eslint-disable-next-line eqeqeq
     const newList = this.state.photos.filter(photo => photo.id != photoId)
     this.setState({
       photos: newList
