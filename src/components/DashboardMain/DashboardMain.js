@@ -17,7 +17,7 @@ export default class DashboardMain extends Component{
                       ?  'Your Dashboard'
                       : 'Demo Dashboard'}
                     </h1>
-                    <p>Welcome to KeepBox </p> 
+                    <p>Welcome to <span className='logo'>keepbox</span>!</p> 
                 </div>
                 <div className='album-list-main'>
                     {albums.map(album =>

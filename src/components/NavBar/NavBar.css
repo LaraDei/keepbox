@@ -1,8 +1,11 @@
-.nav-bar, .menu {
+ .menu {
   padding: 0;
   list-style-type: none;
+}
+.nav-bar{
+  background-color: #11585C;
+  background-image: linear-gradient(#4C6F87, #11585C);
   overflow: hidden;
-  background-color: #333;
 }
 
 .logo{
@@ -33,7 +36,7 @@
   float: right;
   margin: 20px 10px 0 0;
   padding:10px;
-  background-color: rgb(77, 75, 75);
+  background-color: #11585C;
   color: rgb(255, 253, 253);
   border: 0;
   border-radius: 5px;

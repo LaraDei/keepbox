@@ -77,6 +77,21 @@ const AlbumApiService = {
           : res.json()
       )
   },
+  deletePhoto(photo) {
+    return fetch(`${config.API_ENDPOINT}/photo/${photo.id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(photo),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 }
 
 export default AlbumApiService

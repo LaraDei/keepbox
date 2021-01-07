@@ -67,6 +67,7 @@ export default class SignUp extends React.Component{
         const { error } = this.state
         return(
             <div className='SignUp'>
+                <div className='form-signup'>
                 <header>
                     <h1>Create an Account</h1>
                 </header>
@@ -103,6 +104,7 @@ export default class SignUp extends React.Component{
                             <li>At least one number</li>
                             <li>no spaces</li>
                         </ul>
+                </div>
             </div>
         )
     }

@@ -53,6 +53,7 @@ export default class SignIn extends Component{
         const { error } = this.state
         return(
             <div className="SignIn">
+                <div className='form-signin'>
                 <h1>Sign In</h1>
                 <form className='signin-form' onSubmit={this.handleSubmitJwtAuth}>
                 <div role='alert'>
@@ -74,6 +75,7 @@ export default class SignIn extends Component{
                     </div>
                     <button type='submit'>Sign In</button>
                 </form>
+                </div>
             </div>
         )
     }

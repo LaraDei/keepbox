@@ -2,6 +2,7 @@
 .dashboard-main{
     overflow: auto;
     height: 100%;
+    margin-bottom: 20px;
 }
 .Dashboard-link{
     position: relative;

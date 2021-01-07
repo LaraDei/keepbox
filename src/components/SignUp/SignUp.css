@@ -1,5 +1,14 @@
 .SignUp{
-    padding: 75px 0;
+    background: url('../../images/Background.desktop.svg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute; 
+    left: 0; 
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
 }
 .password{
     list-style:none;
@@ -7,4 +16,21 @@
 
 .red{
     color: red;
+}
+.form-signup{
+    background-color: white;
+    width: 90%;
+    margin: 25px auto;
+    padding: 15px;
+    border:  2px solid #11585C;
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px)  {
+.form-signup{
+    width: 400px ;
+  }
+  .SignUp{
+    position: fixed;
+  }
 }

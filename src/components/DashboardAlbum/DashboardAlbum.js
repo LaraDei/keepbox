@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { getPhotosForAlbum, findAlbum } from '../../helpers'
 import Context from '../../context'
 import Slider from '../Slider/Slider'
+import './DashboardAlbum.css'
 
 
 export default class DashboardAlbum extends Component{
@@ -18,7 +19,7 @@ export default class DashboardAlbum extends Component{
         const { photos=[] } = this.context
         const{ albums=[] } = this.context
         const selectedAlbum = findAlbum(albums, albumId) || { content: '' }
-        const photosForAlbum = getPhotosForAlbum(photos, albumId) || { content: '' }
+        const photosForAlbum = getPhotosForAlbum(photos, albumId) 
         const albumLength = photosForAlbum.length || { content: '' }
         return (
             <div className='DashboardAlbum'>

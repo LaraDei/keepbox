@@ -30,7 +30,7 @@ export class AlbumListProvider extends Component {
   deletePhoto = photoId => {
     this.setState({
       photos: this.state.photos.filter(photo => photo.id !== photoId)
-    })
+    },)
   }
 
   addAlbum = album =>{

@@ -1,5 +1,5 @@
 .backbtn{
-    background-color: #cacaca;
+    background-color: #9EE6A3;
     border-radius: 30px;
     border: 0;
     color: black;
@@ -11,4 +11,24 @@
     text-decoration: none;
     width: 60px;
     margin-bottom: 5px;
+}
+
+.deletebtn{
+    float: right;
+    background-color: #a91616;
+    border-radius: 5px;
+    border: 0;
+    color: whitesmoke;
+    font-size: 20px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.DashboardPhoto{
+    padding-bottom: 100px;
+}
+.photo-large{
+    width: 95%;
+    margin: auto;
 }

@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import Context from '../../context'
 import {findPhoto} from '../../helpers'
 import './DashboardPhoto.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from'@fortawesome/free-solid-svg-icons'
+import AlbumApiService from '../../services/album-api-service'
+import TokenService from '../../services/token-service'
 
 export default class DashboardPhoto extends Component{
     static defaultProps = {
@@ -12,9 +16,23 @@ export default class DashboardPhoto extends Component{
             goBack: () => { }
           },
       }
-      
 
     static contextType = Context
+
+    static contextType = Context
+
+    handlePhotoDelete= e => {
+        e.preventDefault()
+        const {photoId} = this.props.match.params
+        AlbumApiService.deletePhoto({id: photoId})
+        .then(res => {
+          this.context.deletePhoto(photoId)
+          this.props.history.goBack()
+        })
+        .catch(error => {
+          console.error('delete photo ',{ error })
+        })
+      }
 
     render(){
         const { photos=[] } = this.context
@@ -31,6 +49,9 @@ export default class DashboardPhoto extends Component{
                     <p>{photo.summary}</p>
                     <p>{photo.date_created}</p>
                 </div>
+                {TokenService.hasAuthToken()
+                ?<button className="deletebtn" onClick={this.handlePhotoDelete}><FontAwesomeIcon icon={faTrash} /> Delete</button>
+                : null}
             </div>
         )
     }

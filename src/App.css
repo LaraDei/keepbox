@@ -21,20 +21,17 @@ body {
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 100px; 
 }
 
 footer {
-  background-color: #444;
+  background-color: #11585C;
   color: white;
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding-top: 15px;
 }
 
-.app-header{
-  padding: 75px 0 35px;
-}
 
 p {
   margin: 0 auto;

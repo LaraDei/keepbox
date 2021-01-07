@@ -46,8 +46,6 @@ export default class Slider extends Component{
       }
 
     render(props){
-        console.log(this.props)
-        console.log(this.state)
         return (
             <div className='slider-wrapper'>
                 <div className='button-wrapper'>
