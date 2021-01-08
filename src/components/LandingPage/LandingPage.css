@@ -24,13 +24,13 @@
     padding: 20px 10px;
     border:  2px solid #11585C;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .app-header{
-    padding: 75px 0 10px;
+    padding: 35px 0 10px;
   }
 .app-header h3{
     background-color: white;
@@ -50,6 +50,7 @@
         max-width: 350px;
     }
     .LandingPage{
-        position: fixed; 
+        position: fixed;
+        
     }
 }
