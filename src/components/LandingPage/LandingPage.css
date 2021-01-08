@@ -42,7 +42,7 @@
     font-size: smaller;
 }
 
-@media only screen and (min-width: 600px)  {
+@media only screen and (min-width: 1000px)  {
     .parent{
         flex-direction: row;
     }
@@ -50,6 +50,6 @@
         max-width: 350px;
     }
     .LandingPage{
-        position: local; 
+        position: fixed; 
     }
 }
