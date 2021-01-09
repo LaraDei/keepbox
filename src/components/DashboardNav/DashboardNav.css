@@ -47,7 +47,7 @@
     padding: 8px 8px 8px 8px;
     text-decoration: none;
     font-size: 25px;
-    color: black;
+    color: white;
     font-weight: bolder;
     display: block;
     transition: 0.3s;
@@ -59,7 +59,7 @@
 }
 
 .DashboardNav-album-link.active {
-    background-color: #6791ad;
+    background-color: #395263;
   }
 .dasNavAddBtn a{
   text-decoration: none;
@@ -75,11 +75,11 @@
   margin-left: 40%;
 }
 .closeContainer {
-    float: right;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
+    margin-left: 80%;
     color: white;
+    text-align: center;
+    align-content: center;
+    align-self: center;
 }
 .closebtn{
   border: 0;
@@ -88,8 +88,9 @@
   color: white;
 }
 .close{
+  margin-right: 5px;
   font-family: Helvetica, Arial, sans-serif; 
-  font-size: .4em;
+  font-size: .5em;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all .3s ease-in;

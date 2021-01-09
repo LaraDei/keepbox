@@ -18,8 +18,10 @@ export default class DashboardNav extends Component{
         return(
             <div className='DashboardNav' id='DashboardNav'>
                 <div className="closeContainer">
-                    <button className="closebtn" onClick={e => this.closeNav()}> <FontAwesomeIcon icon={faTimesCircle} /></button>
-                    <label className="close">close</label>
+                    <button className="closebtn" onClick={e => this.closeNav()}>
+                        <FontAwesomeIcon icon={faTimesCircle} />
+                        <label className="close" htmlFor='close'>close</label>
+                    </button>
                 </div>
                 <ul className='DashboardNav-list'>
                     {albums.map(album =>
