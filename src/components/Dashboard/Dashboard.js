@@ -17,6 +17,7 @@ import { faBars } from'@fortawesome/free-solid-svg-icons'
 export default class Dashboard extends Component{
 static contextType = context  
 
+  //set state with api call or demo data if nor auth token
   componentDidMount() {
     const albumCall =  TokenService.hasAuthToken() ? AlbumApiService.getAlbums() : Store.albums
     const photoCall = TokenService.hasAuthToken() ? AlbumApiService.getPhotos() : Store.photos

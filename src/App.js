@@ -42,8 +42,6 @@ export default class App extends Component {
 
     return (  
 
-
-
       <div className="App">
         <NavBar/>
         <main className="app-main">

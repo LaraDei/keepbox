@@ -42,7 +42,7 @@ export default class AddPhoto extends Component{
     }
 
     static contextType = Context
-
+    //collect required data before photo submit
     updateValue= (value, key) => {
         this.setState({ [key]: {value: value}})
     }
@@ -53,7 +53,7 @@ export default class AddPhoto extends Component{
             this.setState({ [caption]: {error : "Please enter a photo caption" }})
         }
     }
-
+      // post new photo to API
     handlePhotoSubmit= url => {
         AlbumApiService.postPhoto({
             caption: this.state.caption.value, 

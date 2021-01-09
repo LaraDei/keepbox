@@ -8,6 +8,7 @@ export default class AddAlbum extends Component{
 
     static contextType = Context
 
+  // post new album to API
     handleAlbumSubmit= e => {
         e.preventDefault()
         const {title} = e.target
