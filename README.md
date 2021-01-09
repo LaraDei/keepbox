@@ -25,14 +25,18 @@ This app is mobile friendly!
 [Keepbox API source code](https://github.com/LaraDei/keepbox-api "Keepbox API source code")
 
 # Technology Used
--JS
--REACT
--JSX
--CSS
--HTML
--AJAX
--[Simple-File-Upload](https://www.simplefileupload.com/ "Simple-File-Upload")
--JWT
+* JS
+* REACT
+* JSX
+* CSS
+* HTML
+* AJAX
+* [Simple-File-Upload](https://www.simplefileupload.com/ "Simple-File-Upload")
+* JWT
+* SQL
+* postgresql
+* Node
+* Heroku
 
 ## Available Scripts
 

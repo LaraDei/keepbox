@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import Context from '../../context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
@@ -34,18 +34,18 @@ export default class DashboardNav extends Component{
                     )}
                 </ul>
                 <div className='DashboardNav-button-wrapper'>
-                    <button className="NavCircleButton dasNavAddBtn">
-                        <Link to={'/user/add-album'}
+                    
+                        <NavLink className="NavCircleButton dasNavAddBtn" to={'/user/add-album'}
                         >
                         <FontAwesomeIcon icon={faPlus} /> Album
-                        </Link>
-                    </button>
-                    <button className="NavCircleButton dasNavAddBtn">
-                        <Link to={'/user/add-photo'}
-                        >
+                        </NavLink>
+                    
+            
+                        <NavLink className="NavCircleButton dasNavAddBtn" to={'/user/add-photo'}
+                        > 
                         <FontAwesomeIcon icon={faPlus} /> Photo
-                        </Link>
-                    </button>
+                        </NavLink>
+                    
                 </div>
             </div>
         )
