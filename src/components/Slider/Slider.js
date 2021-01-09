@@ -49,8 +49,8 @@ export default class Slider extends Component{
         return (
             <div className='slider-wrapper'>
                 <div className='button-wrapper'>
-                <button className='back' onClick={this.prevSlide}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                <button className='next' onClick={this.nextSlide}><FontAwesomeIcon icon={faChevronRight} /></button>
+                <button className='back' onClick={this.prevSlide}><FontAwesomeIcon icon={faChevronLeft} />back</button>
+                <button className='next' onClick={this.nextSlide}>next<FontAwesomeIcon icon={faChevronRight} /></button>
                 </div>
                 <div className='slider'>
                     {this.props.photos.map((photo, index) => {
