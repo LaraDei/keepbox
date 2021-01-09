@@ -76,7 +76,7 @@ static contextType = context
                 {this.renderNavDashRoutes()}
               </div>
               <div className="dashboard-main">
-                <button className='Dashboard-link NavCircleButton' onClick={e => this.openNav()} ><FontAwesomeIcon icon={faBars} /></button>  
+                <button className='Dashboard-link NavCircleButton' id='menu' onClick={e => this.openNav()} ><FontAwesomeIcon icon={faBars}/>{' '}menu</button>  
                   {this.renderMainDashRoutes()}
               </div>
           </div>

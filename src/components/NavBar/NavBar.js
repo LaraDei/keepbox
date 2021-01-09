@@ -72,7 +72,7 @@ export default class NavBar extends Component {
         return(
             <div className="nav-bar">
               <div className='icon-wrapper'>
-            <button className='icon' onClick={e => this.handleNav()}><FontAwesomeIcon icon={faBars}/></button>
+            <button className='icon' id='nav-button' onClick={e => this.handleNav()}><FontAwesomeIcon icon={faBars}/>{' '}Nav</button>
             </div>
             <ul id='menu' className='menu'>
                 <li className="logo"><Link to={'/'}>keepbox</Link></li>

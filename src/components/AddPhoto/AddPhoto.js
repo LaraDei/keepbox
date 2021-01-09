@@ -90,13 +90,13 @@ export default class AddPhoto extends Component{
                 
                 <form className='add-photo-form' onSubmit={this.handlePhotoInfo}>
                     <div>
-                        <label htmlFor="photo-caption">* Photo Caption: </label>
-                        <input type="text" name="caption" placeholder="Birthday card*"  onChange={e => this.updateValue(e.target.value, e.target.name)} required/>
+                        <label htmlFor="caption">* Photo Caption: </label>
+                        <input type="text" name="caption" placeholder="Birthday card*" id="caption" onChange={e => this.updateValue(e.target.value, e.target.name)} required/>
                         {error && <p className='red'>{error}</p>}
                     </div>
                     <div>
-                        <label htmlFor="photo-summary">Photo summary: </label>
-                        <textarea name="summary" onChange={e => this.updateValue(e.target.value, e.target.name)} ></textarea>
+                        <label htmlFor="summary">Photo summary: </label>
+                        <textarea name="summary" id="summary" onChange={e => this.updateValue(e.target.value, e.target.name)} ></textarea>
                     </div>
                     <div>
                         <label htmlFor="album-select">* Albums: </label>
@@ -111,7 +111,7 @@ export default class AddPhoto extends Component{
                     </div>
                     <div className='date'>
                         <label className="photo-date" htmlFor="date"> Date of Creation: </label>
-                        <textarea name="date_created" onChange={e => this.updateValue(e.target.value, e.target.name)}></textarea>
+                        <textarea name="date_created" id="date" onChange={e => this.updateValue(e.target.value, e.target.name)}></textarea>
                     </div>
                     <div>
                         <label htmlFor="child-age">Child's Age: </label>
