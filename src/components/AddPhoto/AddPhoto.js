@@ -31,7 +31,8 @@ export default class AddPhoto extends Component{
                 value: '',
                 error: null
             },
-            formTouched: false
+            formTouched: false,
+            
         }
     }
 
